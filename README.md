@@ -15,26 +15,50 @@ This project demonstrates how to predict future stock prices using **Long Short-
 
 ## Tech Stack
 
-- **Frontend**: Tkinter (Python GUI Library)
-- **AI/ML Integration**: Google Gemini
-- **API Integration**: Google Calendar API
-- **Voice Recognition**: Python SpeechRecognition
-- **OS-Level Integration**: Python (pyttsx3, pyautogui, os subprocess)
-- **Storage & Sync**: LocalStorage, Session Management
+- **Language**: Python
+- **Libraries**:
+  - `pandas`, `numpy`, `matplotlib`
+  - `pandas_datareader`
+  - `scikit-learn`
+  - `tensorflow` (Keras)
 
 ## Project Structure
 
 ```bash
-├── test.py             # Main file combining all the code
-├── Data
-│   └── chalog.json     # Contains all the previous Chatlog
-├── image.py            # Image analysis AI-code
-├── jarvis.py           # Contains all multi-media tasks
-├── todo.py             # Contains all the calender code
-├── location.py         # Utility file for calender events
-├── requirements.txt    # Contains all the requirements
-└── README.md
+├── main.ipynb          # Core LSTM model prediction pipeline     
+├── AAPL.csv            # Downloaded stock data
+├── requirements.txt    # Python dependencies
+└── README.md           # Project Documentation
 ```
+
+## How It Works
+
+### 1. **Data Collection**
+- Used `pandas_datareader` to fetch historical AAPL data from Tiingo.
+- Data saved to `AAPL.csv` for reproducibility.
+
+### 2. **Data Preprocessing**
+- Extracted the `close` price.
+- Applied `MinMaxScaler` for normalization (0–1 range).
+- Reshaped and split the data into training and testing sets.
+
+### 3. **Dataset Preparation**
+- Created a function to build datasets based on a 100-time-step window.
+
+### 4. **Model Building**
+- Stacked 3 LSTM layers and a Dense layer for output.
+- Loss Function: `Mean Squared Error`
+- Optimizer: `Adam`
+
+### 5. **Training Strategy**
+- Used a **sample-wise training loop** (1 epoch per sample × 100 epochs total).
+
+### 6. **Evaluation**
+- Used RMSE (Root Mean Squared Error) for performance on train and test sets.
+- Compared predicted vs actual prices using plots.
+
+### 7. **30-Day Forecast**
+- Used a rolling input window to forecast the next 30 days beyond the test set.
 
 ## Installation
 
