@@ -62,8 +62,6 @@ This project demonstrates how to predict future stock prices using **Long Short-
 
 ## Installation
 
-> **Note**: Python Version greater than 3.8 needed.
-
 1. **Clone the Repository**
 
 ```bash
