@@ -68,34 +68,20 @@ This project demonstrates how to predict future stock prices using **Long Short-
 
 ```bash
 git clone [repository-url]
-cd NOVA
+cd Stock_Prediction_LSTM
 ```
 
-2. **Create and activate python virtual environment**
-
-```bash
-conda create -p venv python==3.12.0 -y
-activate venv/
-```
-
-3. **Install all the requirements necessary for this project**
+2. **Install all the requirements necessary for this project**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Make an empty `Data` folder in root directory for Chatlogs and then create a file `chatlog.json` inside it**
+3. **Start the Jupyter application**
 
 ```bash
-mkdir Data
-cd Data
-echo. > chalog.json
-```
+jupyter nbconvert --to notebook --execute main.ipynb --inplace
 
-5. **Start the Python application**
-
-```bash
-python test.py
 ```
 
 ## Contributing
